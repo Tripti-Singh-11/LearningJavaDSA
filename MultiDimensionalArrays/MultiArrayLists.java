@@ -14,8 +14,9 @@ public class MultiArrayLists {
         l.add(a);l.add(b); l.add(c); l.add(d);
 
         for(int i=0; i<a.size();i++){
-            System.out.println(a.get(i)+" ");
+            System.out.print(a.get(i)+" ");
         }
+        System.out.println();
         for(int i=0; i<l.size();i++){
             System.out.println(l.get(i)+" ");
         }

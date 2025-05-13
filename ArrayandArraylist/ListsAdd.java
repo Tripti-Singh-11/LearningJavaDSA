@@ -8,14 +8,16 @@ public class ListsAdd {
         System.out.println(List+" "+List.size());
         List.add(64);
         System.out.println(List+" "+List.size());
-        List.add(90);
+        //remove
+        List.remove(Integer.valueOf(90)); 
         System.out.println(List+" "+List.size());
         List.add(-60);
         System.out.println(List+" "+List.size());
         List.add(-80);
         System.out.println(List+" "+List.size());
-        List.remove(50);
+        List.remove(Integer.valueOf(50)); 
         System.out.println(List+" "+List.size());
-       
+        List.add(30);
+        System.out.println(List+" "+List.size());
     }
 }

@@ -24,7 +24,7 @@ public class  LexicographicallyMaximumWord {
                 maxString = wordStrings.get(i);
             }
         }
-        System.out.println("maxString  "+maxString);
+        System.out.println("MaxString:  "+maxString);
     }
 }
 
