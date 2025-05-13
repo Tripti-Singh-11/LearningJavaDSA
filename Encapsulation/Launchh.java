@@ -1,4 +1,4 @@
-
+package Encapsulation;
 class Dog {
     private String breed;
     private float age;
