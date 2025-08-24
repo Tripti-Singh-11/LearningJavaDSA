@@ -11,17 +11,7 @@ class SLL {
     Node head;
     Node tail;
     int size;
-    // Insert at tail
-        void insertAtTail(int val) {
-        Node temp = new Node(val);
-        if (head == null) {
-            head = tail = temp;
-        } else {
-            tail.next = temp;
-            tail = temp;
-        }
-        size++;
-    }
+    
     // Insert at head
     void insertAtHead(int val) {
         Node temp = new Node(val);
@@ -33,7 +23,44 @@ class SLL {
         }
         size++;
     }
-    //  Delete at head
+
+    // Insert at tail
+    void insertAtTail(int val) {
+        Node temp = new Node(val);
+        if (head == null) {
+            head = tail = temp;
+        } else {
+            tail.next = temp;
+            tail = temp;
+        }
+        size++;
+    }
+
+    // Insert at any index
+    void insertAtIndex(int index, int val) {
+        if (index < 0 || index > size) {
+            System.out.println("Invalid index!");
+            return;
+        }
+        if (index == 0) {
+            insertAtHead(val);
+            return;
+        }
+        if (index == size) {
+            insertAtTail(val);
+            return;
+        }
+        Node temp = head;
+        for (int i = 0; i < index - 1; i++) {
+            temp = temp.next;
+        }
+        Node newNode = new Node(val);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        size++;
+    }
+
+    // Delete at head
     void deleteAtHead() {
         if (head == null) {
             System.out.println("List is empty!");
@@ -46,7 +73,8 @@ class SLL {
         }
         size--;
     }
-    //  Delete at tail
+
+    // Delete at tail
     void deleteAtTail() {
         if (head == null) {
             System.out.println("List is empty!");
@@ -64,7 +92,8 @@ class SLL {
         }
         size--;
     }
-    //  Delete at index
+
+    // Delete at index
     void deleteAtIndex(int index) {
         if (index < 0 || index >= size) {
             System.out.println("Invalid index!");
@@ -85,7 +114,8 @@ class SLL {
         temp.next = temp.next.next;
         size--;
     }
-    //  Get value at index
+
+    // Get value at index
     int get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Invalid index!");
@@ -98,6 +128,7 @@ class SLL {
         }
         return temp.val;
     }
+
     // Set value at index
     void set(int index, int newVal) {
         if (index < 0 || index >= size) {
@@ -113,7 +144,8 @@ class SLL {
         }
         temp.val = newVal;
     }
-    //  Display list
+
+    // Display the list
     void display() {
         Node temp = head;
         while (temp != null) {
@@ -122,14 +154,17 @@ class SLL {
         }
         System.out.println();
     }
-    //  Print size
+
+    // Print current size of the list
     void printSize() {
         System.out.println("Size: " + size);
     }
 }
+
 public class CompleteSinglyLinkedList {
     public static void main(String[] args) {
         SLL list = new SLL();
+
         list.printSize();  
         list.insertAtTail(10);
         list.insertAtTail(20);
@@ -138,19 +173,28 @@ public class CompleteSinglyLinkedList {
         list.insertAtTail(50);
         list.display();        
         list.printSize();       
+
         list.insertAtHead(5);
         list.insertAtHead(1);
         list.display();         
         list.printSize();      
+
+        list.insertAtIndex(3, 15);  // Inserting 15 at index 3
+        list.insertAtIndex(0, 100); // Insert at head
+        list.insertAtIndex(list.size, 200); // Insert at tail
+        list.display();         
+        list.printSize();  
+
         list.deleteAtHead();    
         list.display();         
         list.deleteAtTail();    
         list.display();         
         list.deleteAtIndex(2);  
         list.display();       
-        System.out.println("Element at index 2: " + list.get(2)); // Output: 30
-        list.set(1, 15);  
-        list.set(3, 45);  
+
+        System.out.println("Element at index 2: " + list.get(2));
+        list.set(1, 111);
+        list.set(3, 333);
         list.display();        
     }
 }
